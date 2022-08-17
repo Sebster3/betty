@@ -1,0 +1,26 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+theme = 'hyde'
+
+# Website title
+title = 'Betty Mendez'
+
+# Google Analytics
+# googleAnalytics = "tracking code"
+
+# Sidebar menu items
+[Menus]
+    main = [
+        {Name = "About", URL = "/about"},
+        # {Name = "Portfolio", URL = "/portfolio"},
+        {Name = "Contact", URL = "/contact"}
+    ]
+
+[params]
+    description = "Crafting your cherished memories for over a decade"
+    themeColor = "theme-betty"
+
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+    kind = "kinds"
