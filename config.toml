@@ -11,9 +11,9 @@ title = 'Betty Mendez'
 # Sidebar menu items
 [Menus]
     main = [
-        {Name = "About", URL = "/about"},
-        # {Name = "Portfolio", URL = "/portfolio"},
-        {Name = "Contact", URL = "/contact"}
+        {Name = "Home", URL = "/", Weight = 1},
+        {Name = "About", URL = "/about", Weight = 2},
+        {Name = "Contact", URL = "/contact", Weight = 3}
     ]
 
 [params]
