@@ -147,8 +147,9 @@ footer {
   }
 }
 
-img {
-  box-shadow: 1px 1px 1px #00000010, 2px 2px 2px #00000010, 4px 4px 4px #00000010, 8px 8px 8px #00000010, 16px 16px 16px #00000010
+
+.lazy {
+  opacity: 0 !important;
 }
 
 
