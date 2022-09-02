@@ -34,14 +34,19 @@
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
+@media (min-width: 36.75em) {
+  html {
+    font-size: 12px;
+  }
+}
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (min-width: 58em) {
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -55,12 +60,12 @@ html {
 
 .sidebar {
   text-align: center;
-  
+
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
   background-color: #202020;
 }
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -105,7 +110,7 @@ a.sidebar-nav-item:focus {
 .sidebar-copyright {
   display: none;
 }
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   .sidebar .container {
     height: 100%;
     display: flex;
@@ -118,6 +123,7 @@ a.sidebar-nav-item:focus {
   .sidebar-copyright {
     display: initial;
     margin: 0;
+    text-align: center;
   }
 }
 
@@ -127,7 +133,7 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
@@ -141,14 +147,15 @@ footer {
   text-align: center;
   color: #00000070;
 }
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   footer {
     display: none;
   }
 }
 
-img {
-  box-shadow: 1px 1px 1px #00000010, 2px 2px 2px #00000010, 4px 4px 4px #00000010, 8px 8px 8px #00000010, 16px 16px 16px #00000010
+
+.lazy {
+  opacity: 0 !important;
 }
 
 
@@ -163,14 +170,14 @@ img {
   padding-bottom: 4rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   .content {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
   }
   .content.home {
-    max-width: 96rem;
+    max-width: 175rem;
   }
 }
 
@@ -188,29 +195,54 @@ img {
  * Expands the div to fill in the space between flex items.
  */
 
-.gallery {
-  -webkit-column-gap: 5px;
-  -moz-column-count: 1;
-  -moz-column-gap: 5px;
-  column-count: 1;
-  column-gap: 1rem;
+ .gallery {
+  -webkit-column-count: 1;
+     -moz-column-count: 1;
+          column-count: 1;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
 }
-@media (min-width: 48em) {
+.gallery a {
+  /* Needed for proper column wrapping in Chrome */
+  display: block;
+}
+.gallery img {
+  width: 100%;
+  filter: brightness(0.95);
+  transition: opacity 0.4s, filter 0.2s, box-shadow 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.gallery img:hover {
+  filter: brightness(1.05);
+  /* box-shadow: 1px 1px 1px #00000019 , 2px 2px 2px #00000019 , 4px 4px 4px #00000019 , 8px 8px 8px #00000019 , 16px 16px 16px #00000019 ; */
+}
+@media (min-width: 36.75em) {
   .gallery {
+    -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
   }
 }
-/* @media (min-width: 72em) {
+@media (min-width: 81rem) {
   .gallery {
+    -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
   }
-} */
-@media (min-width: 96em) {
+}
+@media (min-width: 145em) {
   .gallery {
-    -moz-column-count: 3;
-    column-count: 3;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+@media (min-width: 145em) {
+  .gallery {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
   }
 }
 
@@ -242,7 +274,7 @@ img {
  * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
 
-@media (min-width: 48em) {
+@media (min-width: 36.75em) {
   .layout-reverse .sidebar {
     left: auto;
     right: 0;
@@ -280,63 +312,41 @@ img {
 /*
  * Themes
  *
- * As of v1.1, Hyde includes optional themes to color the sidebar and links
- * within blog posts. To use, add the class of your choosing to the `body`.
  */
 
-/* Base16 (http://chriskempson.github.io/base16/#default) */
-
-
-/* Green */
-.theme-base-0b .sidebar {
-  /* background-color: #90a959; */
-  background-color: #697c41;
-}
-.theme-base-0b .content a,
-.theme-base-0b .related-posts li a:hover {
-  /* color: #90a959; */
-  color: #697c41;
-}
-.theme-base-0b .tag {
-  background-color: #697c411f;
-}
-.theme-base-0b .tag:hover {
-  background-color: #697c413b;
-}
-
-/* Betty's Custome Theme */
+/* Betty's Custom Theme */
 .theme-betty .sidebar {
-  background-color: #73B5AA;
+  background-color: #73A2B5;
 }
 .theme-betty .content a,
 .theme-betty .related-posts li a:hover {
-  color: #73B5AA;
+  color: #73A2B5;
 }
 .theme-betty .tag {
-  background-color: #417c771f;
+  background-color: #416B7C1F;
 }
 .theme-betty .tag:hover {
-  background-color: #417c6f3b;
+  background-color: #416D7C3B;
 }
 
 /* Betty's Custome Theme (Alternate) */
 .theme-betty-alternate .sidebar {
-  background-color: #AFD5CE;
+  background-color: #AFCAD5;
   color: #00000080;
 }
 .theme-betty-alternate .sidebar h1,
 .theme-betty-alternate .sidebar a {
-  color: #254641;
+  color: #253c46;
 }
 .theme-betty-alternate .content a,
 .theme-betty-alternate .related-posts li a:hover {
-  color: #AFD5CE;
+  color: #AFCAD5;
 }
 .theme-betty-alternate .tag {
-  background-color: #417c771f;
+  background-color: #416B7C1F;
 }
 .theme-betty-alternate .tag:hover {
-  background-color: #417c6f3b;
+  background-color: #416D7C3B;
 }
 
 /* TODO Remove */
