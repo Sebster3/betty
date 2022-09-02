@@ -16,15 +16,13 @@
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 
   <!-- CSS -->
-  <link type="text/css" rel="stylesheet" href="css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="css/poole.css">
-  <link type="text/css" rel="stylesheet" href="css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="/css/styles.css">
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
   {{ partial "head_fonts.html" . }}
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ .Site.BaseURL }}/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
 
   <!-- RSS etc -->
   {{ range .AlternativeOutputFormats -}}
