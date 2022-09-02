@@ -3,7 +3,7 @@
 <div class="gallery">
 {{ with resources.Match "images/gallery/image-*.jpg" -}}
   {{ range . -}}
-    {{ $imgSmall := .Resize "650x jpg q50"}}
+    {{ $imgSmall := .Resize "625x jpg q35"}}
     <a href='{{ .RelPermalink }}'>
       <img class="lazy" data-src="{{$imgSmall.RelPermalink}}" onload="unhideLazy(this)" style='aspect-ratio: {{$imgSmall.Width}}/{{$imgSmall.Height}};'>
     </a>

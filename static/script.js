@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let lazyImages = [].slice.call(document.querySelectorAll('img.lazy'))
     const intersectionOptions = {
         rootMargin: '10px 0px 0px 0px',
-        threshold: 0.25
+        threshold: 0.10
     }
 
     if ("IntersectionObserver" in window) {
@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (entry.intersectionRatio > 0 || entry.isIntersecting) {
                     let lazyImage = entry.target
                     lazyImage.src = lazyImage.dataset.src
-                    console.log("Lazy loading: " + lazyImage.src)
-                    console.log("InterRect: " + entry.intersectionRect)
-                    console.log("InterRatio: " + entry.intersectionRatio)
                     // lazyImage.srcset = lazyImage.dataset.srcset
                     // lazyImage.classList.remove('lazy')
                     lazyImgObserver.unobserve(lazyImage)
