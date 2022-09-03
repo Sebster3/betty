@@ -2,10 +2,14 @@
 
 <div class="gallery">
 {{ with resources.Match "images/gallery/image-*.jpg" -}}
-  {{ range . -}}
-    {{ $imgSmall := .Resize "625x jpg q35"}}
-    <a href='{{ .RelPermalink }}'>
+  {{ range $index, $image := . -}}
+    {{ $imgSmall := $image.Resize "625x jpg q35"}}
+    <a href='{{ $image.RelPermalink }}'>
+      {{ if or (eq $index 0) (eq $index 1) }}
+      <img src='{{$imgSmall.RelPermalink}}' style='aspect-ratio: {{$imgSmall.Width}}/{{$imgSmall.Height}};'>
+      {{ else -}}
       <img class="lazy" data-src="{{$imgSmall.RelPermalink}}" onload="unhideLazy(this)" style='aspect-ratio: {{$imgSmall.Width}}/{{$imgSmall.Height}};'>
+      {{- end }}
     </a>
   {{- end }}
 {{ else }}
