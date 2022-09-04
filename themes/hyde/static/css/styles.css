@@ -715,16 +715,6 @@ footer {
 }
 
 
-/* TODO Remove
-   * Theme switcher section
-   *
-   * Toggle between the light/dark sidebar theme
-   */
-#theme-switcher {
-  text-align: center;
-}
-
-
 /*
    * Flex Spacer
    *
@@ -825,10 +815,4 @@ footer {
 
 .theme-betty-alternate .tag:hover {
   background-color: #416D7C3B;
-}
-
-/* TODO Remove */
-#theme-switcher {
-  opacity: 0.5;
-  margin: 1rem 0;
 }
